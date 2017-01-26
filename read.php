@@ -2,7 +2,7 @@
 
 include 'PHPExcel/Classes/PHPExcel/IOFactory.php';
 
-$inputFileName = 'stok_awal.xls';
+$inputFileName = 'master_kartu_vc.xls';
 error_reporting(E_ERROR | E_WARNING);
 //  Read your Excel workbook
 try {
@@ -29,12 +29,12 @@ for ($row = 1; $row <= $highestRow; $row++){
 	exit;
 	*/
 	
-	
+	/*
 	//INSERT DATA STOK AWAL
 	echo "INSERT INTO MUTASI_GUDANG_DETAIL(KODE_MUTASI_GUDANG, KODE_BARANG, JUMLAH)
 		VALUES('MG00000001', '".$rowData[0][0]."', ".$rowData[0][2].");
 		<br />";
-	
+	*/
 	//UNTUK INSERT DATA STOK AWAL, TIDAK PERLU INSERT KE GUDANG_BARANG
 	/*
 	echo "INSERT INTO GUDANG_BARANG(KODE_GUDANG, KODE_BARANG, KODE_TRANSAKSI, SALDO_AWAL, DEBET, KREDIT, SALDO_AKHIR, TANGGAL, STATUS)
@@ -116,6 +116,12 @@ for ($row = 1; $row <= $highestRow; $row++){
 		INSERT INTO CUSTOMER_LIMIT
 		VALUES ('".$rowData[0][0]."', '".$rowData[0][1]."');<br />
 	";*/
+	
+	//INSERT KARTU SITE
+	echo "
+		INSERT INTO KARTU
+		VALUES ('KT".$rowData[0][0]."LA', 'wdjadmin', 'NO-".$rowData[0][0]." LEMAH ABANG', '1');<br />
+	";
 }
 
 ?>
